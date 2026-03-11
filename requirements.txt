@@ -1,0 +1,7 @@
+django==4.2.10
+djangorestframework==3.14.0
+celery==5.3.4
+redis==5.0.1
+psutil==5.9.8          # 用于ping探测
+cryptography==41.0.7   # 密码加密辅助
+django-cors-headers==4.3.0  # 跨域（可选）
