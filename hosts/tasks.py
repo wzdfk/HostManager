@@ -2,6 +2,12 @@ from celery import shared_task
 from django.utils import timezone
 from .models import Host, HostStatistics, IDC, City
 
+"""
+shared_task装饰器将函数注册为Celery任务，使其可以被异步调用和定时调度。
+1. 异步手动调用：在代码中直接调用change_all_host_passwords.delay()或count_hosts.delay()，任务会被发送到Celery队列异步执行。 前端可以立即得到响应，而不必等待任务完成。
+2. 定时调度：使用Celery Beat等工具，可以设置定时任务，例如每隔八小时自动调用change_all_host_passwords()，每天00:00自动调用count_hosts()，实现自动化的定时任务执行。
+"""
+
 @shared_task
 def change_all_host_passwords():
     """定时任务：每隔八小时修改所有主机密码"""

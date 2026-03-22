@@ -13,7 +13,7 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 # 配置自动发现任务模块
 app.autodiscover_tasks()
 
-# 配置定时任务
+# 配置定时任务  celery beat的定时任务配置，使用crontab来设置执行时间
 app.conf.beat_schedule = {
     # 每隔八小时修改所有主机密码
     'change-host-password-every-8-hours': {
